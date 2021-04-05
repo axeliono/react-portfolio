@@ -1,20 +1,23 @@
 import React, { createContext, useContext } from "react";
-import {  useProjectReducer } from "./reducers";
+import { useProjectReducer } from "./reducers";
 
 const storeContext = createContext();
-const { Provider } = StoreContext();
+const { Provider } = storeContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProjectReducer({
     //enter info when deciding what state info needed
-    post: {},
+    posts: [],
+    projects: [],
+    currentPost: {},
+    author: {},
   });
 
   return <Provider value={[state, dispatch]} {...props} />;
 };
 
 const useStoreContext = () => {
-    return useContext(storeContext);
-}
+  return useContext(storeContext);
+};
 
-export {StoreProvider, useStoreContext};
+export { StoreProvider, useStoreContext };

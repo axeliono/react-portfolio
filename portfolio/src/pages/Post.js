@@ -2,16 +2,18 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import sanityClient from "../sanityClient";
 import { Link } from "react-router-dom";
-import { GET_POST } from "../utils/actions";
+import { GET_POSTS } from "../utils/actions";
 
 const Post = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  const { posts } = state;
+
   useEffect(() => {
     async function sanityFetch() {
       try {
-        const post = await sanityClient.fetch(`*[_type == "post"] {
+        const posts = await sanityClient.fetch(`*[_type == "post"] {
                 title,
                 slug,
                 mainImage{
@@ -22,7 +24,7 @@ const Post = () => {
                     alt
                 }
             }`);
-        dispatch({ type: GET_POST, post: [...post] });
+        dispatch({ type: GET_POSTS, posts: [...posts] });
       } catch (err) {
         console.error(err);
       }
@@ -37,16 +39,30 @@ const Post = () => {
           Thanks for checking out my posts!
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article>
-            <Link to={"/post/" + post.slug.current} key={post.slug.current}>
-              <span>
-                <img />
-                <span>
-                  <h3></h3>
-                </span>
-              </span>
-            </Link>
-          </article>
+          {posts &&
+            posts.map((post, index) => {
+              return (
+                <article className="hover:">
+                  <Link to={"/post/" + post.slug.current} key={index}>
+                    <span
+                      className="block h-64 relative rounded shadow leading-snug bg-gray border-l-8 border blue-400"
+                      key={post.index}
+                    >
+                      <img
+                        src={post.mainImage.asset.url}
+                        alt={post.mainImage.alt}
+                        className="w-full h-full rounded-r object-cover absolute"
+                      />
+                      <span className="block relative h-full flex justify-end items-end pr-4 pb-4">
+                        <h3 className="text-gray-800 text-lg font-blog px-3 py-4 bg-blue-700 text-blue-100 bg-opacity-75 rounded">
+                          {post.title}
+                        </h3>
+                      </span>
+                    </span>
+                  </Link>
+                </article>
+              );
+            })}
         </div>
       </section>
     </main>
