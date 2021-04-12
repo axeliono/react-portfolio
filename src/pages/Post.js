@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import sanityClient from "../sanityClient";
+import sanityClient from "../client.js";
 import { Link } from "react-router-dom";
 import { GET_POSTS } from "../utils/actions";
 
@@ -31,6 +31,16 @@ const Post = () => {
     }
     sanityFetch();
   }, [dispatch]);
+
+
+  if (!posts) {
+    return (
+      <h1 className="text-6xl text-gray-800 animate-pulse font-bold text-center cursive leading-none lg:leading-snug home-name">
+        Loading...
+      </h1>
+    );
+  }
+
   return (
     <main className="bg-gray-100 min-h-screen p-12">
       <section className="container mx-auto">
@@ -42,7 +52,7 @@ const Post = () => {
           {posts &&
             posts.map((post, index) => {
               return (
-                <article className="hover:">
+                <article className="hover:opacity-75">
                   <Link to={"/post/" + post.slug.current} key={index}>
                     <span
                       className="block h-64 relative rounded shadow leading-snug bg-gray border-l-8 border blue-400"

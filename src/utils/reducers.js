@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { GET_CURRENT_POST, GET_POSTS, GET_PROJECTS } from "./actions";
+import { GET_AUTHOR, GET_CURRENT_POST, GET_POSTS, GET_PROJECTS } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -16,7 +16,12 @@ export const reducer = (state, action) => {
     case GET_CURRENT_POST:
       return {
         ...state,
-        currentPost: action.currentPost,
+        singlePost: [...action.singlePost],
+      }
+    case GET_AUTHOR:
+      return {
+        ...state,
+        author: [...action.author],
       }
     default:
       return state;

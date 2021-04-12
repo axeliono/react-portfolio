@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import sanityClient from "../sanityClient";
+import sanityClient from "../client";
 import { GET_PROJECTS } from "../utils/actions";
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -37,7 +37,11 @@ const Project = () => {
     sanityFetch();
   }, [dispatch]);
   if (!projects) {
-    return <div>Loading...</div>;
+    return (
+      <h1 className="text-6xl text-gray-800 animate-pulse font-bold cursive leading-none lg:leading-snug home-name">
+        Loading...
+      </h1>
+    );
   }
   return (
     <main className="bg-indigo-100 min-h-screen p-12">
@@ -46,17 +50,15 @@ const Project = () => {
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
           Thanks for checking out my projects!
         </h2>
-        <section className="grid grid-cols-2 gap-8">
+        <section className="grid md:grid-cols-2 gap-8">
           {projects &&
             projects.map((project) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16 items-center">
-                <div className="flex justify-center">
-                  <img
-                    src={urlFor(project.projectImage)}
-                    alt={project.title + " project"}
-                    className="w-max h-60 "
-                  />
-                </div>
+              <article className="relative shadow-xl bg-white p-16 items-center rounded-3xl">
+                <img
+                  src={urlFor(project.projectImage)}
+                  alt={project.title + " project"}
+                  className="w-full h-60 object-fill rounded-3xl border-solid border-4 border-gray-300"
+                />
                 <h3 className="text-gray-800 text-3xl text-center font-bold mb-2 hover:text-blue-700">
                   <a
                     href={project.deployed_application_link}
@@ -67,28 +69,26 @@ const Project = () => {
                     {project.title}
                   </a>
                 </h3>
-                <div className="text-gray-500 text-xs justify-center space-x-4">
-                  <span>
-                    <strong className="font-bold">Finished on</strong>:{" "}
-                    {new Date(project.date).toLocaleDateString()}
-                  </span>
+                <div className="text-gray-900 text-s justify-center items-center space-x-4">
                   <span></span>
-                  <span className="text-center">
+                  <span className="text-center items-center">
                     <stong className="font-bold">technologies</stong>:{" "}
                     {project.tags.map((tag) => `${tag} - `)}
                   </span>
                   <p className="my-6 text-lg text-gray-700 leading-relaxed">
                     {project.description}
                   </p>
-                  <a
-                    href={project.deployed_application_link}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="text-blue-500 font-bold hover:underline hover:text-blue-400 text-xl"
-                  >
-                    View Project{" "}
-                    <span role="img" aria-label="right pointer"></span>
-                  </a>
+                  {project.deployed_application_link && (
+                    <a
+                      href={project.deployed_application_link}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="text-blue-500 font-bold hover:underline hover:text-blue-400 text-xl"
+                    >
+                      View Project{" "}
+                      <span role="img" aria-label="right pointer"></span>
+                    </a>
+                  )}
                   <a
                     href={project.repository_link}
                     rel="noopener noreferrer"

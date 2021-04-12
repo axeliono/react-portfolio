@@ -9,8 +9,8 @@ const StoreProvider = ({ value = [], ...props }) => {
     //enter info when deciding what state info needed
     posts: [],
     projects: [],
-    currentPost: {},
-    author: {},
+    singlePost: [],
+    author: [],
   });
 
   return <Provider value={[state, dispatch]} {...props} />;
