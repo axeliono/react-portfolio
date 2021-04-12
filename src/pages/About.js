@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import sanityClient from "../client.js";
 import { useSelector, useDispatch } from "react-redux";
 import { GET_AUTHOR } from "../utils/actions";
 import nature from "../assets/images/next-starry-sky.jpg";
-import imageUrlBuilder from "@sanity/image-url";
 import myPicture from "../assets/images/chandler.JPG";
 
-const builder = imageUrlBuilder(sanityClient);
-const urlFor = (source) => {
-  return builder.image(source);
-};
 
 const About = () => {
   const state = useSelector((state) => state);
