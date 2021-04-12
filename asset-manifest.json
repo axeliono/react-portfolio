@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-portfolio/static/css/main.0c8399dd.chunk.css",
+    "main.js": "/react-portfolio/static/js/main.881edb23.chunk.js",
+    "main.js.map": "/react-portfolio/static/js/main.881edb23.chunk.js.map",
+    "runtime-main.js": "/react-portfolio/static/js/runtime-main.4ee15e0f.js",
+    "runtime-main.js.map": "/react-portfolio/static/js/runtime-main.4ee15e0f.js.map",
+    "static/js/2.f14d0921.chunk.js": "/react-portfolio/static/js/2.f14d0921.chunk.js",
+    "static/js/2.f14d0921.chunk.js.map": "/react-portfolio/static/js/2.f14d0921.chunk.js.map",
+    "static/js/3.ec8c1549.chunk.js": "/react-portfolio/static/js/3.ec8c1549.chunk.js",
+    "static/js/3.ec8c1549.chunk.js.map": "/react-portfolio/static/js/3.ec8c1549.chunk.js.map",
+    "index.html": "/react-portfolio/index.html",
+    "static/css/main.0c8399dd.chunk.css.map": "/react-portfolio/static/css/main.0c8399dd.chunk.css.map",
+    "static/js/2.f14d0921.chunk.js.LICENSE.txt": "/react-portfolio/static/js/2.f14d0921.chunk.js.LICENSE.txt",
+    "static/media/chandler.e8d4dc76.JPG": "/react-portfolio/static/media/chandler.e8d4dc76.JPG",
+    "static/media/mountain-pic.57c36fbc.jpg": "/react-portfolio/static/media/mountain-pic.57c36fbc.jpg",
+    "static/media/next-starry-sky.e138911d.jpg": "/react-portfolio/static/media/next-starry-sky.e138911d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ee15e0f.js",
+    "static/js/2.f14d0921.chunk.js",
+    "static/css/main.0c8399dd.chunk.css",
+    "static/js/main.881edb23.chunk.js"
+  ]
+}
