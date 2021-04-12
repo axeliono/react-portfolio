@@ -39,8 +39,18 @@ const Navbar = () => {
           >
             Post
           </NavLink>
+          <a
+            href="https://docs.google.com/document/d/1gHfwU75DKHnsHsPqTh6C1VQFctc3IN1mkcnFHFiP9sc/edit?usp=sharing"
+            className="inline-flex items-center py-3 px-3 my-6 
+            rounded text-gray-500 hover:text-gray-900"
+            activeClassName="text-green-100 bg-blue-700"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resume
+          </a>
         </nav>
-        <div className="flex items-center md:inline-flex py-3 px-3 my-6">
+        <div className="flex items-center md:inline-flex md:py-3 md:px-3 md:my-6">
           <SocialIcon
             url="https://www.linkedin.com/in/chandleregreen/"
             className="mr-4"
