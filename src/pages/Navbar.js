@@ -31,14 +31,14 @@ const Navbar = () => {
           >
             Project
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="post"
             className="inline-flex items-center py-3 px-3 my-6 
             rounded text-gray-500 hover:text-gray-900"
             activeClassName="text-green-100 bg-blue-700"
           >
             Post
-          </NavLink>
+          </NavLink> */}
           <a
             href="https://docs.google.com/document/d/1gHfwU75DKHnsHsPqTh6C1VQFctc3IN1mkcnFHFiP9sc/edit?usp=sharing"
             className="inline-flex items-center py-3 px-3 my-6 
